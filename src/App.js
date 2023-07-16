@@ -5,21 +5,14 @@ import Home from "./components/Home";
 import Cart from "./components/Cart";
 
 const App = () => {
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
   return (
     <BrowserRouter>
       <Header />
       <div className="App">
         <Routes>
-          <Route
-            path="/"
-            element={<Home cart={cart} setCart={setCart} />}
-            exact
-          />
-          <Route
-            path="/cart"
-            element={<Cart cart={cart} setCart={setCart} />}
-          />
+          <Route path="/" element={<Home />} exact />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </BrowserRouter>
