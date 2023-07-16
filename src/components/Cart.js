@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SingleProduct from "./SingleProduct";
+import { Carts } from "../Context";
 
-const Cart = ({ cart, setCart }) => {
+const Cart = () => {
   const [total, setTotal] = useState(0);
+  const { cart } = useContext(Carts);
 
   useEffect(() => {
     setTotal(
@@ -19,14 +21,7 @@ const Cart = ({ cart, setCart }) => {
       <span style={{ fontSize: 30 }}>Total : ${total}</span>
       <div className="productContainer">
         {cart.map((prod) => {
-          return (
-            <SingleProduct
-              prod={prod}
-              key={prod.id}
-              cart={cart}
-              setCart={setCart}
-            />
-          );
+          return <SingleProduct prod={prod} key={prod.id} />;
         })}
       </div>
     </div>

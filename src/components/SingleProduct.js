@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./styles.css";
+import { Carts } from "../Context";
 
-const SingleProduct = ({ prod, cart, setCart }) => {
+const SingleProduct = ({ prod }) => {
+  const { cart, setCart } = useContext(Carts);
   //add to cart
   const addHandler = () => {
     //console.log(cart);
